@@ -8,6 +8,8 @@ module.exports = {
         /* './storage/framework/views/*.php', */
         './resources/**/*.blade.php',
         './pages/**/*.{html,js}',
-        './components/**/*.{html,js}'
+        './components/**/*.{html,js}',
+        // './src//*.{html,js}',
+        // './node_modules/tw-elements/dist/js//*.js' 
     ],
 };

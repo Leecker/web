@@ -42,6 +42,7 @@
   };
 </script>
 
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     </head>
     <body class="font-sans antialiased ">
         <div class="min-h-screen bg-blue-100">
@@ -60,7 +61,9 @@
             </main>
         </div>
         
+        
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+        
     </body>
 </html>

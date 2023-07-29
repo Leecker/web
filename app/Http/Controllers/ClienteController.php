@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Cliente_Tipo;
+use App\Models\Cliente_Clase;
+
+
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -22,17 +26,23 @@ class ClienteController extends Controller
 
     public function create()
     {
-        return view('clientes.create');
+        $clientes_tipo = Cliente_Tipo::All();
+        $clientes_clase = Cliente_Clase::All();
+
+        return view('clientes.create',compact('clientes_tipo','clientes_clase'));
+
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'=>['required'],
-            'apellido'=>['required'],
+            'cliente_clase_id'=>['required'],
+            //'nombre'=>['required'],
+            //'apellido'=>['required'],
             'direccion'=>['required'], 
             'telefono'=>['required','numeric','gt:0','lt:99999999999']/* GreaterThan gt:55 LessThan lt:9999 */, 
-            'email'=>['bail','required','email']
+            'email'=>['bail','required','email'],
+            'cliente_tipo_id'=>['required']
         ]);
 
         $cliente = new Cliente();
@@ -61,12 +71,14 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $request->validate([
-            'nombre'=>['required'],
-            'apellido'=>['required'],
+            'cliente_clase_id'=>['required'],
+            //'nombre'=>['required'],
+            //'apellido'=>['required'],
             'dni'=>['required'],
             'direccion'=>['required'], 
             'telefono'=>['required','numeric','gt:0','lt:9999999999']/* GreaterThan gt:55 LessThan lt:9999 */, 
-            'email'=>['bail','required','email']
+            'email'=>['bail','required','email'],
+            'cliente_tipo_id'=>['required'],
         ]);
 
         $cliente->nombre = $request->nombre;

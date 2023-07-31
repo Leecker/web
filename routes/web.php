@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 use Monolog\Handler\RotatingFileHandler;
 
@@ -67,9 +68,15 @@ Route::controller(MarcaController::class)->group(function (){
     Route::delete('marcas/{marca}','destroy')->name('marcas.destroy'); //para eliminar usamos el método"destroy"
 });
 
-
-
-
+Route::controller(VentaController::class)->group(function (){
+    Route::get('ventas', 'index')->name('ventas.index');
+    Route::get('ventas/show/{venta}', 'show')->name('ventas.show');
+    Route::get('ventas/create','create')->name('ventas.create');
+    Route::post('ventas/store','store')->name('ventas.store');
+    Route::get('ventas/{venta}/edit', 'edit')->name('ventas.edit');
+    Route::put('ventas/{venta}', 'update')->name('ventas.update'); //para actualizar usamos el método "put"
+    Route::delete('ventas/{venta}','destroy')->name('ventas.destroy'); //para eliminar usamos el método"destroy"
+});
 
 require __DIR__.'/auth.php';
 

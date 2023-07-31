@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\marca;
+use App\Models\Marca;
 use Illuminate\Http\Request;
 
 class marcaController extends Controller
